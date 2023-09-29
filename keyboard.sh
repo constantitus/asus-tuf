@@ -9,7 +9,7 @@
 # 3:red, 4:green, 5:blue = 0-255
 # 6:speed = 0-2
 # writing anything non-numeric will give you an error.
-# writing more orless than 6 arguments to the file
+# writing more or less than 6 arguments to the file
 # will also give you an error
 # Have fun.
 
