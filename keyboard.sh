@@ -24,31 +24,36 @@ PrintHelp() {
 }
 
 if [[ $# -eq 1 ]]; then
-    if [[ $1 =~ ^(white|w)$ ]]; then
-        echo "1 0 255 255 255 0" > $bpath
-        exit
-    elif [[ $1 =~ ^(r|red)$ ]]; then
-        echo "1 0 255 0 0 0" > $bpath
-        exit
-    elif [[ $1 =~ ^(g|green)$ ]]; then
-        echo "1 0 0 255 0 0" > $bpath
-        exit
-    elif [[ $1 =~ ^(b|blue)$ ]]; then
-        echo "1 0 0 0 255 0" > $bpath
-        exit
-    elif [[ $1 =~ ^(c|cyan)$ ]]; then
-        echo "1 0 0 255 255 0" > $bpath
-        exit
-    elif [[ $1 =~ ^(y|yellow)$ ]]; then
-        echo "1 0 255 255 0 0" > $bpath
-        exit
-    elif [[ $1 =~ ^(m|magenta)$ ]]; then
-        echo "1 0 255 0 255 0" > $bpath
-        exit
-    elif [[ $1 =~ ^(b|black|o|off)$ ]]; then
-        echo "1 0 0 0 0 0" > $bpath
-        exit
-    fi
+    case "$1" in
+        white|w)
+            echo "1 0 255 255 255 0" > $bpath
+            exit ;;
+        r|red)
+            echo "1 0 255 0 0 0" > $bpath
+            exit ;;
+        g|green)
+            echo "1 0 0 255 0 0" > $bpath
+            exit ;;
+        b|blue)
+            echo "1 0 0 0 255 0" > $bpath
+            exit ;;
+        c|cyan)
+            echo "1 0 0 255 255 0" > $bpath
+            exit ;;
+        y|yellow)
+            echo "1 0 255 255 0 0" > $bpath
+            exit ;;
+        m|magenta)
+            echo "1 0 255 0 255 0" > $bpath
+            exit ;;
+        b|black|o|off)
+            echo "1 0 0 0 0 0" > $bpath
+            exit ;;
+        *)
+            echo "Unknown argument \"$1\""
+            PrintHelp
+            ;;
+    esac
 elif [[ $# -eq 3 ]]; then
     echo "1 0 $1 $2 $3 0" > $bpath
     exit
